@@ -17,7 +17,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from map.views import startpage
+from place.views import startpage
 
 
 urlpatterns = [

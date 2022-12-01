@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 """where_to_go URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -21,4 +23,4 @@ from map.views import startpage
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', startpage)
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

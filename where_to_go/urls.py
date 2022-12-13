@@ -18,9 +18,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from place.views import startpage
+from django.views.static import serve
+from django.conf.urls import url
 
 
 urlpatterns = [
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     path('admin/', admin.site.urls),
     path('', startpage)
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += (
+        static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) +
+        static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+        )

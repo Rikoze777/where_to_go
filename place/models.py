@@ -16,11 +16,24 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    place = models.ForeignKey(Place,
-                              on_delete=models.CASCADE,
-                              verbose_name='Место')
-    image = models.ImageField(verbose_name='Картинки',
-                              upload_to=f'{Place.title}/')
+    place = models.ForeignKey(
+        'Place',
+        verbose_name='Место',
+        related_name='images',
+        on_delete=models.SET_NULL,
+        null=True)
+    img = models.ImageField(
+        'Картинка',
+        upload_to='',
+        null=True,
+        blank=True)
+    img_title = models.CharField(
+        'Название',
+        max_length=50,
+        null=True,
+        unique=True,
+        )
+    order = models.PositiveIntegerField('Порядок', default=1)
 
-    def __str__(self):
-        return self.place
+    class Meta:
+        ordering = ['order']

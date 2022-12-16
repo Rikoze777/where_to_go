@@ -27,13 +27,10 @@ class Image(models.Model):
         upload_to='',
         null=True,
         blank=True)
-    img_title = models.CharField(
-        'Название',
-        max_length=50,
-        null=True,
-        unique=True,
-        )
     order = models.PositiveIntegerField('Порядок', default=1)
 
     class Meta:
         ordering = ['order']
+
+    def __str__(self):
+        return f"{self.id}{self.place}"

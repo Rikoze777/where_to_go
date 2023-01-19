@@ -1,18 +1,18 @@
 from django.contrib import admin
 from places.models import Place, Image
 from django.utils.safestring import mark_safe
+from adminsortable2.admin import SortableInlineAdminMixin
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
     raw_id_fields = ('place', )
-    readonly_fields = ["place_image"]
+    readonly_fields = ["place_image", ]
 
     def place_image(self, obj):
-        return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
-            url = obj.img.url,
-            width=obj.img.width,
-            height=obj.img.height,
+        return mark_safe('<img src="{url}" height={height} />'.format(
+            url=obj.img.url,
+            height='200px',
             )
     )
 

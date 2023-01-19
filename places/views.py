@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Place
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 
 def index(request):
@@ -29,3 +31,9 @@ def index(request):
                }
 
     return render(request, "index.html", context=context)
+
+
+def get_place(request, place_id):
+    place = get_object_or_404(Place, id=place_id)
+
+    return HttpResponse(place.title)

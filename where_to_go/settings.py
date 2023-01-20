@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'where_to_go.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': env.str('DATABASE_FILEPATH',
+        'ENGINE': env.str('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': env.str('DATABASE_NAME',
                         os.path.join(BASE_DIR, 'db.sqlite3'),)
     }
 }
@@ -131,9 +131,11 @@ STATIC_URL = env.str('STATIC_URL', '/static/')
 MEDIA_URL = env.str('MEDIA_URL', '/media/')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'assets'),
 ]
 
 STATIC_ROOT = env.str('STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
 
 MEDIA_ROOT = env.str('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

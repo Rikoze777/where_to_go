@@ -26,14 +26,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str('SECRET_KEY', 'REPLACE_ME')
-print(SECRET_KEY)
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', False)
-print(DEBUG)
+
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', ['127.0.0.1','.pythonanywhere.com'])
-print(ALLOWED_HOSTS)
 
 
 # Application definition
@@ -134,10 +133,10 @@ STATIC_URL = env.str('STATIC_URL', '/static/')
 MEDIA_URL = env.str('MEDIA_URL', '/media/')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-STATIC_ROOT = env.str('STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
+STATIC_ROOT = env.str('STATIC_ROOT', os.path.join(BASE_DIR, 'assets'))
 
 MEDIA_ROOT = env.str('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 

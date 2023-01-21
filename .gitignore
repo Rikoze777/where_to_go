@@ -10,7 +10,6 @@ __pycache__/
 # Distribution / packaging
 .Python
 where_to_go/__pycache__/
-media/
 build/
 develop-eggs/
 dist/

@@ -24,7 +24,7 @@ class Command(BaseCommand):
                 Image.objects.create(place=place, img=img)
             except requests.exceptions.HTTPError as error:
                 self.stderr.write(self.style.ERROR(
-                    f'Image load {error}'))
+                    f'Image loading {error}'))
                 continue
 
     def handle(self, *args, **options):

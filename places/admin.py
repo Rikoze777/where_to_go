@@ -12,9 +12,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
     def place_image(self, obj):
         return format_html("<img src={} height={}/>",
-            obj.image.url,
-            "200px"
-        )
+                           obj.image.url, "200px")
 
 
 @admin.register(Place)

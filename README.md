@@ -1,6 +1,6 @@
 # Яндекс.Афиша
 
-[Сайт](rikoz.pythonanywhere.com) о самых интересных местах в Москве. 
+[Сайт](http://rikoz.pythonanywhere.com) о самых интересных местах в Москве. 
 
 
 ## Как установить
@@ -50,7 +50,7 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```
 
-[Итоговая страница сайта](rikoz.pythonanywhere.com)
+[Итоговая страница сайта](http://rikoz.pythonanywhere.com)
 
 ## Админка сайта
 

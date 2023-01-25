@@ -18,10 +18,9 @@ class Image(models.Model):
         'Place',
         verbose_name='Отношение к месту',
         related_name='images',
-        on_delete=models.SET_NULL,
-        null=True)
+        on_delete=models.CASCADE,)
     img = models.ImageField('Фото')
-    order = models.PositiveIntegerField('Порядок', default=1)
+    order = models.PositiveIntegerField('Порядок', default=0)
 
     class Meta:
         ordering = ['order']

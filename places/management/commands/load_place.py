@@ -21,7 +21,7 @@ class Command(BaseCommand):
                     response.content,
                     name=f"{place.title}_{number}{ext}",
                 )
-                Image.objects.create(place=place, img=img)
+                Image.objects.create(place=place, img=img, order=number)
             except requests.exceptions.HTTPError as error:
                 self.stderr.write(self.style.ERROR(
                     f'Image loading {error}'))

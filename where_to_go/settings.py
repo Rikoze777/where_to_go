@@ -29,10 +29,10 @@ SECRET_KEY = env.str('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', False)
+DEBUG = env.bool('DEBUG')
 
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', ['127.0.0.1','.pythonanywhere.com'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'places.apps.PlacesConfig',
     'tinymce',
     'adminsortable2',
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'where_to_go.urls'

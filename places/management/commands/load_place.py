@@ -24,7 +24,7 @@ class Command(BaseCommand):
                 Image.objects.create(place=place, img=img, order=number)
             except requests.exceptions.HTTPError as error:
                 self.stderr.write(self.style.ERROR(
-                    f'Image loading {error}'))
+                    f'Image loading error: {error}'))
                 continue
 
     def handle(self, *args, **options):
@@ -52,7 +52,7 @@ class Command(BaseCommand):
 
         except requests.exceptions.HTTPError as error:
             self.stderr.write(self.style.ERROR(
-                f'JSON load {error}'))
+                f'JSON loading error: {error}'))
             return
 
         self.fetch_imgs(place, img_links)
